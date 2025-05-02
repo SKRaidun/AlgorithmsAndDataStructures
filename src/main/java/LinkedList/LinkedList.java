@@ -1,6 +1,6 @@
 package LinkedList;
 
-public class LinkedList {
+public class LinkedList <T> {
 
     public Node first;
     public int length;
@@ -9,7 +9,7 @@ public class LinkedList {
         length = 0;
     }
 
-    public void addFirst(int val) {
+    public void addFirst(T val) {
 
         Node newNode = new Node(val);
 
@@ -22,7 +22,7 @@ public class LinkedList {
         length += 1;
     }
 
-    public void addLast(int val) {
+    public void addLast(T val) {
         Node temp = first;
         while (temp.next != null) {
             temp = temp.next;
@@ -31,7 +31,7 @@ public class LinkedList {
         length += 1;
         }
 
-    public void add(int val, int n) {
+    public void add(T val, int n) {
         Node newNode = new Node(val);
         if (n == 0) {
             addFirst(val);
@@ -60,21 +60,21 @@ public class LinkedList {
         } else {
             Node temp = first;
             if (temp.next == null) {
-                System.out.println(temp.val);
+                System.out.println(temp.getVal());
             } else {
                 while (temp.next != null) {
-                    System.out.println(temp.val);
+                    System.out.println(temp.getVal());
                     temp = temp.next;
                 }
-                System.out.println(temp.val);
+                System.out.println(temp.getVal());
             }
         }
     }
 
-    public int remove(int n) {
-        int node = 0;
+    public <T> T remove(int n) {
+        T node = null;
         if (n == 1) {
-            node = first.val;
+            node = (T) first.getVal();
             first = first.next;
             length--;
             return node;
@@ -84,12 +84,12 @@ public class LinkedList {
             int k = 1;
             while (temp.next != null) {
                 if (n == length & k == n - 1) {
-                    node = temp.val;
+                    node = (T) temp.getVal();
                     temp.next = null;
                     length--;
                     return node;
                 } else if (k == n - 1) {
-                    node = temp.val;
+                    node = (T) temp.getVal();
                     temp.next = next.next;
                     length--;
                     return node;
@@ -115,8 +115,8 @@ public class LinkedList {
         }
     }
 
-    public int printFirst() {
-        return first.val;
+    public <T> T printFirst() {
+        return (T) first.getVal();
     }
 
 //    public void search(int n) {

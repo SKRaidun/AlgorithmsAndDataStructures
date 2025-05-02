@@ -1,22 +1,22 @@
 package Queue;
 
-public class QueueArray {
+public class QueueArray <T> {
 
     public int size;
     public int capacity = 0;
     public int front = 0;
     public int back = 0;
-    public int[] queue;
+    public T[] queue;
 
 
     public QueueArray(int size) {
         this.size = size;
-        this.queue = new int[size];
+        this.queue = (T[]) new Object[size];
     }
 
     public QueueArray() {
         this.size = 10;
-        this.queue = new int[10];
+        this.queue = (T[]) new Object[10];
     }
 
     public boolean isEmpty() {
@@ -27,7 +27,7 @@ public class QueueArray {
         return capacity == size;
     }
 
-    public void add(int val) {
+    public void add(T val) {
         if (isFull()) {
             throw new RuntimeException("Queue is full");
         } else {
@@ -37,11 +37,11 @@ public class QueueArray {
         }
     }
 
-    public int pop() {
+    public <T> T pop() {
         if (isEmpty()) {
             throw new RuntimeException("Queue is empty");
         }  else {
-            int temp = queue[front];
+            T temp = (T) queue[front];
             front = (front + 1) % size;
             capacity--;
             return temp;

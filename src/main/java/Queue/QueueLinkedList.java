@@ -2,7 +2,7 @@ package Queue;
 
 import LinkedList.LinkedList;
 
-public class QueueLinkedList {
+public class QueueLinkedList <T> {
 
     int size;
 
@@ -20,7 +20,7 @@ public class QueueLinkedList {
         return linkedList.length == 0;
     }
 
-    public void add(int val) {
+    public void add(T val) {
         if (isFull()) {
             System.out.println("Queue is full");
         } else if (linkedList.length == 0) {
@@ -30,11 +30,11 @@ public class QueueLinkedList {
         }
     }
 
-    public int pop() {
+    public <T> T pop() {
         if (isEmpty()) {
-            return 0;
+            return null;
         } else {
-            return linkedList.remove(1);
+            return (T) linkedList.remove(1);
         }
     }
 
@@ -42,8 +42,8 @@ public class QueueLinkedList {
         linkedList.print();
     }
 
-    public int peek() {
+    public <T> T peek() {
         System.out.println(linkedList.printFirst());
-        return linkedList.printFirst();
+        return (T) linkedList.printFirst();
     }
 }

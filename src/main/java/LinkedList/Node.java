@@ -1,11 +1,27 @@
 package LinkedList;
-public class Node {
-    public int val;
+public class Node <T> {
+    private T val;
     public Node next;
 
 
-    public Node(int val) {
+    public Node(T val) {
         this.val = val;
         this.next = null;
+    }
+
+    public T getVal() {
+        return val;
+    }
+
+    public void setVal(T val) {
+        this.val = val;
+    }
+
+    public Node getNext() {
+        return next;
+    }
+
+    public void setNext(Node next) {
+        this.next = next;
     }
 }

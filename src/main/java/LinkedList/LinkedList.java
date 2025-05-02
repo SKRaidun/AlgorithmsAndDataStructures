@@ -4,10 +4,12 @@ public class LinkedList <T> {
 
     public Node first;
     public int length;
+
     public LinkedList() {
         first = null;
         length = 0;
     }
+
 
     public void addFirst(T val) {
 

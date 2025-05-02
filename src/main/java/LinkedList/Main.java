@@ -3,7 +3,7 @@ package LinkedList;
 public class Main {
     public static void main(String[] args) {
 
-        LinkedList ll = new LinkedList();
+        LinkedList<Integer> ll = new LinkedList<Integer>();
 
         ll.addFirst(10);
         ll.addLast(15);
@@ -19,10 +19,6 @@ public class Main {
 
         ll.print();
 
-        System.out.println("--------------------");
-
-        ll.reverse();
-        ll.print();
 
     }
 }

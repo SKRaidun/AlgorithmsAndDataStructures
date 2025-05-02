@@ -1,18 +1,18 @@
 package Stack;
 
-public class ArrayStack {
+public class ArrayStack <T> {
 
-    int info;
-    int size = 0;
+    private T info;
+    private int size = 0;
     int top = 0;
-    int[] stack;
+    private T[] stack;
 
-    public ArrayStack() {
-        this.size = size;
-        this.stack = new int[size];
+    public ArrayStack(int n) {
+        this.size = n;
+        this.stack = (T[]) new Object[n];
     }
 
-    public void add(int info) {
+    public void add(T info) {
         if (top == size) {
             System.out.println("Stack is full");
         } else {
@@ -21,7 +21,7 @@ public class ArrayStack {
         }
     }
 
-    public int pop() throws RuntimeException {
+    public T pop() throws RuntimeException {
         if (top == 0) {
             System.out.println("Stack is empty");
             throw new RuntimeException();
@@ -32,8 +32,13 @@ public class ArrayStack {
     }
 
     public void print() {
-        for (int i = 0; i < top; i++) {
-            System.out.println(stack[i]);
+        if (top == 0) {
+            System.out.println("Stack is empty");
+            throw new RuntimeException();
+        } else {
+            for (int i = top - 1; i >= 0; i--) {
+                System.out.println(stack[i]);
+            }
         }
     }
 }

@@ -1,23 +1,23 @@
 package Stack;
 
 
-public class ListStack {
+public class ListStack <T>{
 
-    Node top = null;
+    private Node top = null;
 
-    public void add(int value) {
+    public void add(T value) {
         Node newNode = new Node(value);
         newNode.next = top;
         top = newNode;
     }
 
-    public int pop() {
+    public <T> T pop() {
         if (top == null) {
             System.out.println("Stack is empty");
             throw new IllegalStateException();
         } else {
             Node newNode = top;
-            int result = newNode.info;
+            T result = (T) newNode.getInfo();
             top = newNode.next;
             return result;
         }
@@ -28,10 +28,10 @@ public class ListStack {
 
         if (top != null) {
             while (newNode.next != null) {
-                System.out.println(newNode.info);
+                System.out.println(newNode.getInfo());
                 newNode = newNode.next;
             }
-            System.out.println(newNode.info);
+            System.out.println(newNode.getInfo());
         }
     }
 }
